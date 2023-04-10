@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StartButton = new System.Windows.Forms.Button();
             this.правилаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,13 @@
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
+            // правилаToolStripMenuItem
+            // 
+            this.правилаToolStripMenuItem.Name = "правилаToolStripMenuItem";
+            this.правилаToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.правилаToolStripMenuItem.Text = "Правила";
+            this.правилаToolStripMenuItem.Click += new System.EventHandler(this.правилаToolStripMenuItem_Click);
+            // 
             // StartButton
             // 
             this.StartButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -65,13 +72,8 @@
             this.StartButton.Text = "Начать";
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
-            // 
-            // правилаToolStripMenuItem
-            // 
-            this.правилаToolStripMenuItem.Name = "правилаToolStripMenuItem";
-            this.правилаToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
-            this.правилаToolStripMenuItem.Text = "Правила";
-            this.правилаToolStripMenuItem.Click += new System.EventHandler(this.правилаToolStripMenuItem_Click);
+            this.StartButton.MouseEnter += new System.EventHandler(this.StartButton_MouseEnter);
+            this.StartButton.MouseLeave += new System.EventHandler(this.StartButton_MouseLeave);
             // 
             // Form1
             // 

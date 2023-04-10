@@ -74,11 +74,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(57, 163);
+            this.label3.Location = new System.Drawing.Point(47, 161);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 25);
+            this.label3.Size = new System.Drawing.Size(93, 25);
             this.label3.TabIndex = 4;
-            this.label3.Text = "speed:";
+            this.label3.Text = "Скорость:";
             // 
             // pictureBox1
             // 
@@ -87,7 +87,7 @@
             this.pictureBox1.ErrorImage = global::ILSmodel.Properties.Resources.plane_point;
             this.pictureBox1.Image = global::ILSmodel.Properties.Resources.plane_point_rules;
             this.pictureBox1.InitialImage = global::ILSmodel.Properties.Resources.plane_point;
-            this.pictureBox1.Location = new System.Drawing.Point(75, 214);
+            this.pictureBox1.Location = new System.Drawing.Point(79, 214);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(18, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
