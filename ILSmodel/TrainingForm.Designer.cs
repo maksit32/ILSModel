@@ -42,9 +42,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.FlapsLabel = new System.Windows.Forms.Label();
+            this.OnAppLabel = new System.Windows.Forms.Label();
+            this.OnLocLabel = new System.Windows.Forms.Label();
             this.ControlGroupBox = new System.Windows.Forms.GroupBox();
             this.FlapsDownButton = new System.Windows.Forms.Button();
             this.FlapsUpButton = new System.Windows.Forms.Button();
@@ -139,9 +139,9 @@
             this.DisplaysGroupBox.Controls.Add(this.pictureBox2);
             this.DisplaysGroupBox.Controls.Add(this.pictureBox1);
             this.DisplaysGroupBox.Controls.Add(this.label8);
-            this.DisplaysGroupBox.Controls.Add(this.label7);
-            this.DisplaysGroupBox.Controls.Add(this.label5);
-            this.DisplaysGroupBox.Controls.Add(this.label4);
+            this.DisplaysGroupBox.Controls.Add(this.FlapsLabel);
+            this.DisplaysGroupBox.Controls.Add(this.OnAppLabel);
+            this.DisplaysGroupBox.Controls.Add(this.OnLocLabel);
             this.DisplaysGroupBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DisplaysGroupBox.Location = new System.Drawing.Point(9, 14);
             this.DisplaysGroupBox.Name = "DisplaysGroupBox";
@@ -153,7 +153,7 @@
             // HeightPFD
             // 
             this.HeightPFD.BackColor = System.Drawing.Color.Transparent;
-            this.HeightPFD.Location = new System.Drawing.Point(199, 117);
+            this.HeightPFD.Location = new System.Drawing.Point(193, 117);
             this.HeightPFD.Name = "HeightPFD";
             this.HeightPFD.Size = new System.Drawing.Size(47, 23);
             this.HeightPFD.TabIndex = 10;
@@ -209,32 +209,32 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Минимум:";
             // 
-            // label7
+            // FlapsLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(339, 238);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 23);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Закрылки:";
+            this.FlapsLabel.AutoSize = true;
+            this.FlapsLabel.Location = new System.Drawing.Point(339, 238);
+            this.FlapsLabel.Name = "FlapsLabel";
+            this.FlapsLabel.Size = new System.Drawing.Size(89, 23);
+            this.FlapsLabel.TabIndex = 2;
+            this.FlapsLabel.Text = "Закрылки:";
             // 
-            // label5
+            // OnAppLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(243, 238);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 23);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "OnAPP:";
+            this.OnAppLabel.AutoSize = true;
+            this.OnAppLabel.Location = new System.Drawing.Point(243, 238);
+            this.OnAppLabel.Name = "OnAppLabel";
+            this.OnAppLabel.Size = new System.Drawing.Size(68, 23);
+            this.OnAppLabel.TabIndex = 4;
+            this.OnAppLabel.Text = "OnAPP:";
             // 
-            // label4
+            // OnLocLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(243, 215);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 23);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "OnLock:";
+            this.OnLocLabel.AutoSize = true;
+            this.OnLocLabel.Location = new System.Drawing.Point(243, 215);
+            this.OnLocLabel.Name = "OnLocLabel";
+            this.OnLocLabel.Size = new System.Drawing.Size(71, 23);
+            this.OnLocLabel.TabIndex = 3;
+            this.OnLocLabel.Text = "OnLock:";
             // 
             // ControlGroupBox
             // 
@@ -454,9 +454,9 @@
         private Button HeadingRightButton;
         private Button HeightUP;
         private Button HeightDown;
-        private Label label5;
-        private Label label4;
-        private Label label7;
+        private Label OnAppLabel;
+        private Label OnLocLabel;
+        private Label FlapsLabel;
         private Button FlapsUpButton;
         private Button FlapsDownButton;
         private Label label8;
