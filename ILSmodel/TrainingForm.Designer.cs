@@ -41,10 +41,6 @@
             this.HeadingLabelNav = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.FlapsLabel = new System.Windows.Forms.Label();
-            this.OnAppLabel = new System.Windows.Forms.Label();
-            this.OnLocLabel = new System.Windows.Forms.Label();
             this.ControlGroupBox = new System.Windows.Forms.GroupBox();
             this.HeightDown = new System.Windows.Forms.Button();
             this.HeightUP = new System.Windows.Forms.Button();
@@ -58,6 +54,7 @@
             this.HeightLabel = new System.Windows.Forms.Label();
             this.HorizontalPB = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label8 = new System.Windows.Forms.Label();
             this.PositionVerticalGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaneVertical)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VerticalPB)).BeginInit();
@@ -137,9 +134,6 @@
             this.DisplaysGroupBox.Controls.Add(this.pictureBox2);
             this.DisplaysGroupBox.Controls.Add(this.pictureBox1);
             this.DisplaysGroupBox.Controls.Add(this.label8);
-            this.DisplaysGroupBox.Controls.Add(this.FlapsLabel);
-            this.DisplaysGroupBox.Controls.Add(this.OnAppLabel);
-            this.DisplaysGroupBox.Controls.Add(this.OnLocLabel);
             this.DisplaysGroupBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DisplaysGroupBox.Location = new System.Drawing.Point(9, 14);
             this.DisplaysGroupBox.Name = "DisplaysGroupBox";
@@ -151,9 +145,10 @@
             // HeightPFD
             // 
             this.HeightPFD.BackColor = System.Drawing.Color.Transparent;
-            this.HeightPFD.Location = new System.Drawing.Point(193, 117);
+            this.HeightPFD.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HeightPFD.Location = new System.Drawing.Point(215, 117);
             this.HeightPFD.Name = "HeightPFD";
-            this.HeightPFD.Size = new System.Drawing.Size(47, 23);
+            this.HeightPFD.Size = new System.Drawing.Size(41, 23);
             this.HeightPFD.TabIndex = 10;
             this.HeightPFD.Text = "999";
             this.HeightPFD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,9 +156,10 @@
             // SpeedLabelPFD
             // 
             this.SpeedLabelPFD.BackColor = System.Drawing.Color.Transparent;
-            this.SpeedLabelPFD.Location = new System.Drawing.Point(18, 117);
+            this.SpeedLabelPFD.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SpeedLabelPFD.Location = new System.Drawing.Point(39, 117);
             this.SpeedLabelPFD.Name = "SpeedLabelPFD";
-            this.SpeedLabelPFD.Size = new System.Drawing.Size(47, 23);
+            this.SpeedLabelPFD.Size = new System.Drawing.Size(34, 23);
             this.SpeedLabelPFD.TabIndex = 9;
             this.SpeedLabelPFD.Text = "999";
             this.SpeedLabelPFD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,9 +167,9 @@
             // HeadingLabelNav
             // 
             this.HeadingLabelNav.BackColor = System.Drawing.Color.Transparent;
-            this.HeadingLabelNav.Location = new System.Drawing.Point(328, 43);
+            this.HeadingLabelNav.Location = new System.Drawing.Point(335, 43);
             this.HeadingLabelNav.Name = "HeadingLabelNav";
-            this.HeadingLabelNav.Size = new System.Drawing.Size(47, 23);
+            this.HeadingLabelNav.Size = new System.Drawing.Size(89, 23);
             this.HeadingLabelNav.TabIndex = 3;
             this.HeadingLabelNav.Text = "999";
             this.HeadingLabelNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,7 +178,7 @@
             // 
             this.pictureBox2.BackgroundImage = global::ILSmodel.Properties.Resources.NavDisplay;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(262, 41);
+            this.pictureBox2.Location = new System.Drawing.Point(289, 41);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(177, 171);
             this.pictureBox2.TabIndex = 8;
@@ -194,45 +190,9 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(6, 26);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(228, 230);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 230);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(262, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 23);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Минимум:";
-            // 
-            // FlapsLabel
-            // 
-            this.FlapsLabel.AutoSize = true;
-            this.FlapsLabel.Location = new System.Drawing.Point(339, 238);
-            this.FlapsLabel.Name = "FlapsLabel";
-            this.FlapsLabel.Size = new System.Drawing.Size(89, 23);
-            this.FlapsLabel.TabIndex = 2;
-            this.FlapsLabel.Text = "Закрылки:";
-            // 
-            // OnAppLabel
-            // 
-            this.OnAppLabel.AutoSize = true;
-            this.OnAppLabel.Location = new System.Drawing.Point(243, 238);
-            this.OnAppLabel.Name = "OnAppLabel";
-            this.OnAppLabel.Size = new System.Drawing.Size(68, 23);
-            this.OnAppLabel.TabIndex = 4;
-            this.OnAppLabel.Text = "OnAPP:";
-            // 
-            // OnLocLabel
-            // 
-            this.OnLocLabel.AutoSize = true;
-            this.OnLocLabel.Location = new System.Drawing.Point(243, 215);
-            this.OnLocLabel.Name = "OnLocLabel";
-            this.OnLocLabel.Size = new System.Drawing.Size(71, 23);
-            this.OnLocLabel.TabIndex = 3;
-            this.OnLocLabel.Text = "OnLock:";
             // 
             // ControlGroupBox
             // 
@@ -379,6 +339,15 @@
             this.timer.Interval = 600;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(357, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 23);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Курс:";
+            // 
             // TrainingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -430,10 +399,6 @@
         private Button HeadingRightButton;
         private Button HeightUP;
         private Button HeightDown;
-        private Label OnAppLabel;
-        private Label OnLocLabel;
-        private Label FlapsLabel;
-        private Label label8;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox PlaneVertical;
@@ -448,5 +413,6 @@
         private Label HeightPFD;
         private Label SpeedLabelPFD;
         private System.Windows.Forms.Timer timer;
+        private Label label8;
     }
 }

@@ -192,7 +192,9 @@
             this.Controls.Add(this.LocButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(662, 461);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(662, 461);
             this.Name = "Rules";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rules";
