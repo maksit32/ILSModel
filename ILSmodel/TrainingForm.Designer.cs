@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrainingForm));
             this.PositionVerticalGroupBox = new System.Windows.Forms.GroupBox();
+            this.PlaneVertical = new System.Windows.Forms.PictureBox();
             this.FailureButton = new System.Windows.Forms.Button();
             this.HeadingLabel = new System.Windows.Forms.Label();
-            this.PlaneVertical = new System.Windows.Forms.PictureBox();
             this.VerticalPB = new System.Windows.Forms.PictureBox();
             this.DisplaysGroupBox = new System.Windows.Forms.GroupBox();
             this.HeightPFD = new System.Windows.Forms.Label();
@@ -46,8 +46,6 @@
             this.OnAppLabel = new System.Windows.Forms.Label();
             this.OnLocLabel = new System.Windows.Forms.Label();
             this.ControlGroupBox = new System.Windows.Forms.GroupBox();
-            this.FlapsDownButton = new System.Windows.Forms.Button();
-            this.FlapsUpButton = new System.Windows.Forms.Button();
             this.HeightDown = new System.Windows.Forms.Button();
             this.HeightUP = new System.Windows.Forms.Button();
             this.HeadingRightButton = new System.Windows.Forms.Button();
@@ -55,9 +53,9 @@
             this.APPButton = new System.Windows.Forms.Button();
             this.LocButton = new System.Windows.Forms.Button();
             this.PositionHorizontalGroupBox = new System.Windows.Forms.GroupBox();
+            this.PlaneHorizontal = new System.Windows.Forms.PictureBox();
             this.MinimumLabel = new System.Windows.Forms.Label();
             this.HeightLabel = new System.Windows.Forms.Label();
-            this.PlaneHorizontal = new System.Windows.Forms.PictureBox();
             this.HorizontalPB = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.PositionVerticalGroupBox.SuspendLayout();
@@ -74,9 +72,9 @@
             // 
             // PositionVerticalGroupBox
             // 
+            this.PositionVerticalGroupBox.Controls.Add(this.PlaneVertical);
             this.PositionVerticalGroupBox.Controls.Add(this.FailureButton);
             this.PositionVerticalGroupBox.Controls.Add(this.HeadingLabel);
-            this.PositionVerticalGroupBox.Controls.Add(this.PlaneVertical);
             this.PositionVerticalGroupBox.Controls.Add(this.VerticalPB);
             this.PositionVerticalGroupBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PositionVerticalGroupBox.Location = new System.Drawing.Point(9, 284);
@@ -85,6 +83,20 @@
             this.PositionVerticalGroupBox.TabIndex = 0;
             this.PositionVerticalGroupBox.TabStop = false;
             this.PositionVerticalGroupBox.Text = "Вертикальное положение ВС";
+            // 
+            // PlaneVertical
+            // 
+            this.PlaneVertical.BackColor = System.Drawing.Color.Transparent;
+            this.PlaneVertical.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PlaneVertical.ErrorImage = global::ILSmodel.Properties.Resources.plane_point;
+            this.PlaneVertical.Image = global::ILSmodel.Properties.Resources.plane_point;
+            this.PlaneVertical.InitialImage = global::ILSmodel.Properties.Resources.plane_point;
+            this.PlaneVertical.Location = new System.Drawing.Point(243, 20);
+            this.PlaneVertical.Name = "PlaneVertical";
+            this.PlaneVertical.Size = new System.Drawing.Size(18, 20);
+            this.PlaneVertical.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlaneVertical.TabIndex = 7;
+            this.PlaneVertical.TabStop = false;
             // 
             // FailureButton
             // 
@@ -104,20 +116,6 @@
             this.HeadingLabel.Size = new System.Drawing.Size(81, 23);
             this.HeadingLabel.TabIndex = 12;
             this.HeadingLabel.Text = "Курс ВС: ";
-            // 
-            // PlaneVertical
-            // 
-            this.PlaneVertical.BackColor = System.Drawing.Color.Transparent;
-            this.PlaneVertical.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PlaneVertical.ErrorImage = global::ILSmodel.Properties.Resources.plane_point;
-            this.PlaneVertical.Image = global::ILSmodel.Properties.Resources.plane_point;
-            this.PlaneVertical.InitialImage = global::ILSmodel.Properties.Resources.plane_point;
-            this.PlaneVertical.Location = new System.Drawing.Point(243, 19);
-            this.PlaneVertical.Name = "PlaneVertical";
-            this.PlaneVertical.Size = new System.Drawing.Size(18, 20);
-            this.PlaneVertical.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PlaneVertical.TabIndex = 7;
-            this.PlaneVertical.TabStop = false;
             // 
             // VerticalPB
             // 
@@ -238,8 +236,6 @@
             // 
             // ControlGroupBox
             // 
-            this.ControlGroupBox.Controls.Add(this.FlapsDownButton);
-            this.ControlGroupBox.Controls.Add(this.FlapsUpButton);
             this.ControlGroupBox.Controls.Add(this.HeightDown);
             this.ControlGroupBox.Controls.Add(this.HeightUP);
             this.ControlGroupBox.Controls.Add(this.HeadingRightButton);
@@ -254,38 +250,14 @@
             this.ControlGroupBox.TabStop = false;
             this.ControlGroupBox.Text = "Управление ВС";
             // 
-            // FlapsDownButton
-            // 
-            this.FlapsDownButton.BackColor = System.Drawing.Color.Gainsboro;
-            this.FlapsDownButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FlapsDownButton.Location = new System.Drawing.Point(331, 81);
-            this.FlapsDownButton.Name = "FlapsDownButton";
-            this.FlapsDownButton.Size = new System.Drawing.Size(140, 38);
-            this.FlapsDownButton.TabIndex = 7;
-            this.FlapsDownButton.Text = "Закрылки выпуск:";
-            this.FlapsDownButton.UseVisualStyleBackColor = false;
-            this.FlapsDownButton.Click += new System.EventHandler(this.FlapsDownButton_Click);
-            // 
-            // FlapsUpButton
-            // 
-            this.FlapsUpButton.BackColor = System.Drawing.Color.Gainsboro;
-            this.FlapsUpButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FlapsUpButton.Location = new System.Drawing.Point(331, 26);
-            this.FlapsUpButton.Name = "FlapsUpButton";
-            this.FlapsUpButton.Size = new System.Drawing.Size(140, 38);
-            this.FlapsUpButton.TabIndex = 6;
-            this.FlapsUpButton.Text = "Закрылки вверх";
-            this.FlapsUpButton.UseVisualStyleBackColor = false;
-            this.FlapsUpButton.Click += new System.EventHandler(this.FlapsUpButton_Click);
-            // 
             // HeightDown
             // 
             this.HeightDown.BackColor = System.Drawing.Color.Peru;
             this.HeightDown.Location = new System.Drawing.Point(77, 181);
             this.HeightDown.Name = "HeightDown";
-            this.HeightDown.Size = new System.Drawing.Size(138, 46);
+            this.HeightDown.Size = new System.Drawing.Size(147, 46);
             this.HeightDown.TabIndex = 5;
-            this.HeightDown.Text = "Высота вниз";
+            this.HeightDown.Text = "Снизиться";
             this.HeightDown.UseVisualStyleBackColor = false;
             this.HeightDown.Click += new System.EventHandler(this.HeightDown_Click);
             // 
@@ -294,9 +266,9 @@
             this.HeightUP.BackColor = System.Drawing.Color.PaleTurquoise;
             this.HeightUP.Location = new System.Drawing.Point(77, 77);
             this.HeightUP.Name = "HeightUP";
-            this.HeightUP.Size = new System.Drawing.Size(138, 46);
+            this.HeightUP.Size = new System.Drawing.Size(147, 46);
             this.HeightUP.TabIndex = 4;
-            this.HeightUP.Text = "Высота вверх ";
+            this.HeightUP.Text = "Набрать высоту";
             this.HeightUP.UseVisualStyleBackColor = false;
             this.HeightUP.Click += new System.EventHandler(this.HeightUP_Click);
             // 
@@ -346,9 +318,9 @@
             // 
             // PositionHorizontalGroupBox
             // 
+            this.PositionHorizontalGroupBox.Controls.Add(this.PlaneHorizontal);
             this.PositionHorizontalGroupBox.Controls.Add(this.MinimumLabel);
             this.PositionHorizontalGroupBox.Controls.Add(this.HeightLabel);
-            this.PositionHorizontalGroupBox.Controls.Add(this.PlaneHorizontal);
             this.PositionHorizontalGroupBox.Controls.Add(this.HorizontalPB);
             this.PositionHorizontalGroupBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PositionHorizontalGroupBox.Location = new System.Drawing.Point(500, 284);
@@ -357,6 +329,20 @@
             this.PositionHorizontalGroupBox.TabIndex = 3;
             this.PositionHorizontalGroupBox.TabStop = false;
             this.PositionHorizontalGroupBox.Text = "Горизонтальное положение ВС";
+            // 
+            // PlaneHorizontal
+            // 
+            this.PlaneHorizontal.BackColor = System.Drawing.Color.Transparent;
+            this.PlaneHorizontal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PlaneHorizontal.ErrorImage = global::ILSmodel.Properties.Resources.plane_point;
+            this.PlaneHorizontal.Image = global::ILSmodel.Properties.Resources.plane_point;
+            this.PlaneHorizontal.InitialImage = global::ILSmodel.Properties.Resources.plane_point;
+            this.PlaneHorizontal.Location = new System.Drawing.Point(293, 20);
+            this.PlaneHorizontal.Name = "PlaneHorizontal";
+            this.PlaneHorizontal.Size = new System.Drawing.Size(18, 20);
+            this.PlaneHorizontal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlaneHorizontal.TabIndex = 10;
+            this.PlaneHorizontal.TabStop = false;
             // 
             // MinimumLabel
             // 
@@ -374,21 +360,7 @@
             this.HeightLabel.Name = "HeightLabel";
             this.HeightLabel.Size = new System.Drawing.Size(153, 23);
             this.HeightLabel.TabIndex = 11;
-            this.HeightLabel.Text = "Высота ВС:  4000ft";
-            // 
-            // PlaneHorizontal
-            // 
-            this.PlaneHorizontal.BackColor = System.Drawing.Color.Transparent;
-            this.PlaneHorizontal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PlaneHorizontal.ErrorImage = global::ILSmodel.Properties.Resources.plane_point;
-            this.PlaneHorizontal.Image = global::ILSmodel.Properties.Resources.plane_point;
-            this.PlaneHorizontal.InitialImage = global::ILSmodel.Properties.Resources.plane_point;
-            this.PlaneHorizontal.Location = new System.Drawing.Point(293, 19);
-            this.PlaneHorizontal.Name = "PlaneHorizontal";
-            this.PlaneHorizontal.Size = new System.Drawing.Size(18, 20);
-            this.PlaneHorizontal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PlaneHorizontal.TabIndex = 10;
-            this.PlaneHorizontal.TabStop = false;
+            this.HeightLabel.Text = "Высота ВС:  3000ft";
             // 
             // HorizontalPB
             // 
@@ -418,13 +390,17 @@
             this.Controls.Add(this.DisplaysGroupBox);
             this.Controls.Add(this.PositionVerticalGroupBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1007, 822);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1007, 822);
             this.Name = "TrainingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrainingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrainingForm_FormClosing);
             this.Load += new System.EventHandler(this.TrainingForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingForm_KeyDown);
             this.PositionVerticalGroupBox.ResumeLayout(false);
             this.PositionVerticalGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaneVertical)).EndInit();
@@ -457,8 +433,6 @@
         private Label OnAppLabel;
         private Label OnLocLabel;
         private Label FlapsLabel;
-        private Button FlapsUpButton;
-        private Button FlapsDownButton;
         private Label label8;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;

@@ -17,11 +17,10 @@ namespace ILSmodel
         private bool IsLoc = false;
         private bool IsApp = false;
         private bool IsLanded = false;
-        private bool OnRnW = false; //при посадке (чтоб не разбиться)
 
 
         //ВСЕ данные о ВС, кроме его местоположения
-        private Plane plane = new Plane { Course = 90, Heading = 270, Heingt = 4000, Minimum = 200, Speed = 220 };
+        private Plane plane = new Plane { Course = 90, Heading = 270, Heingt = 3000, Minimum = 200, Speed = 200 };
         //положения точек(ВС) для разных координатных плоскостей
         //глиссада
         private int XHorizontal;
@@ -63,40 +62,41 @@ namespace ILSmodel
             this.timer.Start();
         }
 
-        //проверка координат (габаритов) в полете + сам полет
+        //проверка координат (габаритов) в полете
         private void checkCoordinates()
         {
             //проверка по x,y вертикальной точки
-            if (XVertical < 0 || YVertical < 16 || YVertical > 469 || XVertical > 467)
+            if (XVertical < 0 || YVertical < 20 || YVertical > 470 || XVertical > 460)
             {
                 Random rand = new Random();
                 //разворот ВС на рандомный курс поворот
                 this.plane.Heading += rand.Next(1, 180);
                 checkHeading();
-                fly();
             }
-            else
-            {
-                fly();
-            }
+
 
 
             //проверка по x,y горизонтальной точки (высота)
-            if (XHorizontal < 6) //лево
+            if (XHorizontal < 0) //лево
             {
-                XHorizontal = 6;
+                XHorizontal = 0;
             }
-            if (XHorizontal > 459) //право
+            if (XHorizontal > 460) //право
             {
-                XHorizontal = 459;
+                XHorizontal = 460;
             }
-            if (YHorizontal < 16) //верх
+            if (YHorizontal < 20) //верх
             {
-                YHorizontal = 16;
+                YHorizontal = 20;
             }
-            if (YHorizontal > 263) //низ (ниже ВПП высота быть не может!)
+            if (YHorizontal > 270) //низ (ниже ВПП высота быть не может!)
             {
-                YHorizontal = 263;
+                YHorizontal = 270; //проверяем посадка ли?
+                if (checkRunway() && plane.Speed == 0 && plane.Heingt == 0)
+                {
+                    timer.Stop();
+                    MessageBox.Show("Самолет успешно приземлился!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
         }
@@ -113,6 +113,7 @@ namespace ILSmodel
             else if (this.plane.Heading == 90)
             {
                 XVertical += 5;
+                XHorizontal += 5;
             }
             else if (this.plane.Heading == 180)
             {
@@ -121,86 +122,103 @@ namespace ILSmodel
             else if (this.plane.Heading == 270)
             {
                 XVertical -= 5;
+                XHorizontal -= 5;
             }
             else if (this.plane.Heading >= 1 && this.plane.Heading < 22)
             {
                 XVertical += 1;
                 YVertical -= 3;
+                XHorizontal += 1;
             }
             else if (this.plane.Heading >= 22 && this.plane.Heading < 45)
             {
                 XVertical += 2;
                 YVertical -= 2;
+                XHorizontal += 2;
             }
             else if (this.plane.Heading >= 45 && this.plane.Heading < 67)
             {
                 XVertical += 3;
                 YVertical -= 1;
+                XHorizontal += 3;
             }
             else if (this.plane.Heading >= 67 && this.plane.Heading < 90)
             {
                 XVertical += 4;
                 YVertical -= 1;
+                XHorizontal += 4;
             }
             else if (this.plane.Heading >= 91 && this.plane.Heading < 112)
             {
                 XVertical += 3;
                 YVertical += 1;
+                XHorizontal += 3;
             }
             else if (this.plane.Heading >= 112 && this.plane.Heading < 135)
             {
                 XVertical += 2;
                 YVertical += 2;
+                XHorizontal += 2;
             }
             else if (this.plane.Heading >= 135 && this.plane.Heading < 157)
             {
                 XVertical += 1;
                 YVertical += 3;
+                XHorizontal += 1;
             }
             else if (this.plane.Heading >= 157 && this.plane.Heading < 180)
             {
                 XVertical += 1;
                 YVertical += 4;
+                XHorizontal += 1;
             }
             else if (this.plane.Heading >= 181 && this.plane.Heading < 202)
             {
                 XVertical -= 1;
                 YVertical += 3;
+                XHorizontal -= 1;
             }
             else if (this.plane.Heading >= 202 && this.plane.Heading < 225)
             {
                 XVertical -= 2;
                 YVertical += 2;
+                XHorizontal -= 2;
             }
             else if (this.plane.Heading >= 225 && this.plane.Heading < 247)
             {
                 XVertical -= 3;
                 YVertical += 1;
+                XHorizontal -= 3;
             }
             else if (this.plane.Heading >= 247 && this.plane.Heading < 270)
             {
                 XVertical -= 4;
                 YVertical += 1;
+                XHorizontal -= 4;
             }
             else if (this.plane.Heading >= 271 && this.plane.Heading < 292)
             {
                 XVertical -= 3;
                 YVertical -= 1;
+                XHorizontal -= 3;
             }
             else if (this.plane.Heading >= 292 && this.plane.Heading < 315)
             {
                 XVertical -= 2;
                 YVertical -= 2;
+                XHorizontal -= 2;
             }
             else if (this.plane.Heading >= 315 && this.plane.Heading < 337)
             {
                 XVertical -= 1;
                 YVertical -= 3;
+                XHorizontal -= 1;
             }
             else if (this.plane.Heading >= 337 && this.plane.Heading < 360)
             {
                 XVertical -= 1;
                 YVertical -= 4;
+                XHorizontal -= 1;
             }
         }
 
@@ -241,25 +259,17 @@ namespace ILSmodel
                 //обычный полет
                 else
                 {
-                    //сдвиг координат + самолетов
-                    //курс
-                    //движение ВС
-                    //XVertical += 5;
-                    //YVertical += 5;
-                    checkCoordinates(); //+fly сам полет
-                    //this.plane.Heading += 5;
+                    checkCoordinates();
                     //меняем текст
                     this.HeadingLabel.Text = $"Курс ВС: {plane.Heading}";
                     this.HeadingLabelNav.Text = $"{plane.Heading}";
                     //сдвиг ВС
                     this.PlaneVertical.Location = new Point(XVertical, YVertical);
 
+                    //передвижение координат
+                    fly();
 
-                    //высота
-                    //движение
-                    //XHorizontal += 5;
-                    //YHorizontal += 5;
-                    checkCoordinates();
+                    //горизонталь
                     //сдвиг ВС
                     this.PlaneHorizontal.Location = new Point(XHorizontal, YHorizontal);
 
@@ -274,6 +284,7 @@ namespace ILSmodel
             else
             {
                 //если приземлился
+                timer.Stop();
                 MessageBox.Show("Самолет успешно приземлился", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -326,12 +337,13 @@ namespace ILSmodel
         {
             //изменение высоты ВС
             this.plane.Heingt += 100;
-            if (this.plane.Heingt > 4500)
+            if (this.plane.Heingt > 3000)
             {
-                this.plane.Heingt = 4500;
+                this.plane.Heingt = 3000;
             }
             this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
             this.HeightPFD.Text = $"{plane.Heingt}";
+            this.YHorizontal -= 8;
         }
 
         private void HeightDown_Click(object sender, EventArgs e)
@@ -342,6 +354,7 @@ namespace ILSmodel
                 this.plane.Heingt -= 100;
                 this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
                 this.HeightPFD.Text = $"{plane.Heingt}";
+                this.YHorizontal += 8;
             }
             else if (plane.Heingt > 0 && plane.Heingt <= 250)
             {
@@ -353,6 +366,7 @@ namespace ILSmodel
                 }
                 this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
                 this.HeightPFD.Text = $"{plane.Heingt}";
+                this.YHorizontal += 6;
             }
             //height == 0
             else
@@ -373,6 +387,7 @@ namespace ILSmodel
             {
                 //отключение таймера
                 timer.Stop();
+                this.PlaneHorizontal.Location = new Point(XHorizontal, 270);
                 var res = MessageBox.Show($"Самолет разбился!{Environment.NewLine}Начать заново?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (res == DialogResult.Yes)
                 {
@@ -396,9 +411,8 @@ namespace ILSmodel
             const int YRnw = 214;
 
             //150 - все что дальше выезд за полосу
-            if ((XVertical >= XRnw && XVertical <= XRnw + 150) && (YVertical > YRnw - 4 && YVertical < YRnw + 4))
+            if ((XVertical >= XRnw && XVertical <= XRnw + 155) && (YVertical > YRnw - 6 && YVertical < YRnw + 6))
             {
-                OnRnW = true;
                 return true;
             }
             else
@@ -407,25 +421,106 @@ namespace ILSmodel
             }
         }
 
-        //закрылки! (test)
-        private void FlapsUpButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FlapsDownButton_Click(object sender, EventArgs e)
-        {
-
-        }
         //захват курсового!
         private void LocButton_Click(object sender, EventArgs e)
         {
-
+            //отключение
+            if (IsLoc)
+            {
+                (sender as Button).BackColor = Color.Red;
+                IsLoc = false;
+                APPButton.BackColor = Color.Red;
+                IsApp = false;
+            }
+            else
+            {
+                (sender as Button).BackColor = Color.Green;
+                IsLoc = true;
+            }
         }
         //захват глиссадного + курсового
         private void APPButton_Click(object sender, EventArgs e)
         {
+            //отключение
+            if (IsApp)
+            {
+                LocButton.BackColor = Color.Red;
+                IsLoc = false;
+                (sender as Button).BackColor = Color.Red;
+                IsApp = false;
+            }
+            else
+            {
+                LocButton.BackColor = Color.Green;
+                IsLoc = true;
 
+                (sender as Button).BackColor = Color.Green;
+                IsApp = true;
+            }
+        }
+        //быстрое движение
+        private void TrainingForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Q)
+            {
+                this.plane.Heading -= 5;
+                checkHeading();
+            }
+            else if (e.KeyCode == Keys.E)
+            {
+                this.plane.Heading += 5;
+                checkHeading();
+            }
+            //набор высоты
+            else if (e.KeyCode == Keys.W)
+            {
+                this.plane.Heingt += 100;
+                if (this.plane.Heingt > 3000)
+                {
+                    this.plane.Heingt = 3000;
+                }
+                this.YHorizontal -= 8;
+                //обновление высоты
+                this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
+                this.HeightPFD.Text = $"{plane.Heingt}";
+            }
+            //снижение
+            else if (e.KeyCode == Keys.S)
+            {
+                this.plane.Heingt -= 100;
+                if (plane.Heingt < 0)
+                {
+                    heightZero();
+                }
+                this.YHorizontal += 8;
+                this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
+                this.HeightPFD.Text = $"{plane.Heingt}";
+
+            }
+            //скорость увеличение и уменьшение
+            else if (e.KeyCode == Keys.A)
+            {
+                this.plane.Speed -= 10;
+                if (plane.Speed < 0)
+                {
+                    plane.Speed = 0;
+                }
+                this.SpeedLabelPFD.Text = $"{plane.Speed}";
+                if (plane.Speed < 130 && !checkRunway())
+                {
+                    timer.Stop();
+                    MessageBox.Show("Сваливание! Самолет разбился", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else if (e.KeyCode == Keys.D)
+            {
+                this.plane.Speed += 10;
+                if (plane.Speed >= 200)
+                {
+                    plane.Speed = 200;
+                }
+                this.SpeedLabelPFD.Text = $"{plane.Speed}";
+            }
         }
     }
 }
