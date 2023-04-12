@@ -1103,6 +1103,7 @@ namespace ILSmodel
         private void ContinueButton_Click(object sender, EventArgs e)
         {
             GoAroud = false;
+            this.KeyPreview = true;
         }
     }
 }
