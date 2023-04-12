@@ -251,18 +251,151 @@ namespace ILSmodel
                 {
                     //натяжка на курсовой (алгоритм) + на глиссадный (алгоритм)
                     this.pictureBox1.Image = Image.FromFile("..\\..\\..\\images\\PFD_descent.png");
+                    this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                    //как и курсовой, только дополнительно сдвиг по глиссадному (XHoriz, YHoriz)
+                    if ((XVertical > 22 && XVertical < 47) && (YVertical > 133 && YVertical <= 212))
+                    {
+                        //двигаем x
+                        XVertical += 3;
+                        XHorizontal += 3;
+                        //двигаем y
+                        YVertical += 4;
+                        YHorizontal++;
+                        //меняем курс
+                        plane.Heading = 120;
+                        //меняем текст
+                        this.HeadingLabel.Text = $"Курс ВС: {plane.Heading}";
+                        this.HeadingLabelNav.Text = $"{plane.Heading}";
+                        //двигаем самолет
+                        PlaneVertical.Location = new Point(XVertical, YVertical);
+                    }
+                    //резко сдвигаемся на точку 2 (сверху)
+                    else if ((XVertical >= 47 && XVertical <= 95) && (YVertical > 133 && YVertical <= 211))
+                    {
+                        //двигаем x
+                        XVertical += 2;
+                        XHorizontal += 2;
+                        //двигаем y
+                        YVertical += 5;
+                        YHorizontal++;
+                        //меняем курс
+                        plane.Heading = 150;
+                        //меняем текст
+                        this.HeadingLabel.Text = $"Курс ВС: {plane.Heading}";
+                        this.HeadingLabelNav.Text = $"{plane.Heading}";
+                        //двигаем самолет
+                        PlaneVertical.Location = new Point(XVertical, YVertical);
+                    }
+                    //спокойно сдвигаемся на точку 1(снизу)
+                    else if ((XVertical > 22 && XVertical < 47) && (YVertical >= 220 && YVertical < 340))
+                    {
+                        //двигаем x
+                        XVertical += 3;
+                        XHorizontal += 3;
+                        //двигаем y
+                        YVertical -= 4;
+                        YHorizontal++;
+                        //меняем курс
+                        plane.Heading = 40;
+                        //меняем текст
+                        this.HeadingLabel.Text = $"Курс ВС: {plane.Heading}";
+                        this.HeadingLabelNav.Text = $"{plane.Heading}";
+                        //двигаем самолет
+                        PlaneVertical.Location = new Point(XVertical, YVertical);
+                    }
+                    //резко сдвигаемся на точку 2 (снизу)
+                    else if ((XVertical >= 47 && XVertical <= 95) && (YVertical >= 221 && YVertical < 340))
+                    {
+                        //двигаем x
+                        XVertical += 2;
+                        XHorizontal += 2;
+                        //двигаем y
+                        YVertical -= 5;
+                        YHorizontal++;
+                        //меняем курс
+                        plane.Heading = 30;
+                        //меняем текст
+                        this.HeadingLabel.Text = $"Курс ВС: {plane.Heading}";
+                        this.HeadingLabelNav.Text = $"{plane.Heading}";
+                        //двигаем самолет
+                        PlaneVertical.Location = new Point(XVertical, YVertical);
+                    }
+                    //на курсовом, просто двигаемся по x + снижение скорости
+                    else if ((XVertical >= 47 && XVertical < 150) && (YVertical == 216))
+                    {
+                        //снижение скорости
+                        if (plane.Speed != 140)
+                        {
+                            plane.Speed -= 10;
+                            this.SpeedLabelPFD.Text = plane.Speed.ToString();
+                        }
+                        if (YVertical >= 214 && YVertical <= 217)
+                        {
+                            YVertical = 215;
+                        }
+                        //двигаем x
+                        XVertical += 5;
+                        XHorizontal += 5;
+                        //снижаюсь по X
+                        YHorizontal++;
+                        //меняем курс
+                        plane.Heading = 90;
+                        //меняем текст
+                        this.HeadingLabel.Text = $"Курс ВС: {plane.Heading}";
+                        this.HeadingLabelNav.Text = $"{plane.Heading}";
+                        //двигаем самолет
+                        PlaneVertical.Location = new Point(XVertical, YVertical);
+                    }
+                    //протягивание (не захватил)
+                    else if (XVertical < 390)
+                    {
+                        //снижение скорости
+                        if (plane.Speed != 140)
+                        {
+                            plane.Speed -= 10;
+                            this.SpeedLabelPFD.Text = plane.Speed.ToString();
+                        }
+                        if (YVertical >= 214 && YVertical <= 217)
+                        {
+                            YVertical = 215;
+                        }
+                        //двигаем x
+                        XVertical += 5;
+                        XHorizontal += 5;
+                        //двигаю y
+                        YHorizontal++;
+                        //меняем курс
+                        plane.Heading = 90;
+                        //меняем текст
+                        this.HeadingLabel.Text = $"Курс ВС: {plane.Heading}";
+                        this.HeadingLabelNav.Text = $"{plane.Heading}";
+                        //двигаем самолет
+                        PlaneVertical.Location = new Point(XVertical, YVertical);
+                    }
+                    //захватил но пилот не приземлился
+                    else
+                    {
+                        LocButton_Click(sender, e);
+                    }
 
                 }
                 //захвачен курсовой без глиссады
                 else if (IsLoc)
                 {
                     //натяжка на курсовой (алгоритм)
+                    //чтобы после lock менялась высота
                     //спокойно сдвигаемся на точку 1(сверху)
-                    if ((XVertical > 22 && XVertical < 47) && (YVertical > 133 && YVertical <= 216))
+                    this.PlaneHorizontal.Location = new Point(XHorizontal, YHorizontal);
+                    //PFD -- выравнивание
+                    this.pictureBox1.Image = Image.FromFile("..\\..\\..\\images\\PFD_center.png");
+                    this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                    if ((XVertical > 22 && XVertical < 47) && (YVertical > 133 && YVertical <= 212))
                     {
                         //двигаем x
                         XVertical += 3;
+                        XHorizontal += 3;
                         //двигаем y
                         YVertical += 4;
                         //меняем курс
@@ -274,10 +407,11 @@ namespace ILSmodel
                         PlaneVertical.Location = new Point(XVertical, YVertical);
                     }
                     //резко сдвигаемся на точку 2 (сверху)
-                    else if ((XVertical >= 47 && XVertical <= 95) && (YVertical > 133 && YVertical <= 216))
+                    else if ((XVertical >= 47 && XVertical <= 95) && (YVertical > 133 && YVertical <= 211))
                     {
                         //двигаем x
                         XVertical += 2;
+                        XHorizontal += 2;
                         //двигаем y
                         YVertical += 5;
                         //меняем курс
@@ -289,10 +423,11 @@ namespace ILSmodel
                         PlaneVertical.Location = new Point(XVertical, YVertical);
                     }
                     //спокойно сдвигаемся на точку 1(снизу)
-                    else if ((XVertical > 22 && XVertical < 47) && (YVertical >= 216 && YVertical < 340))
+                    else if ((XVertical > 22 && XVertical < 47) && (YVertical >= 220 && YVertical < 340))
                     {
                         //двигаем x
                         XVertical += 3;
+                        XHorizontal += 3;
                         //двигаем y
                         YVertical -= 4;
                         //меняем курс
@@ -304,10 +439,11 @@ namespace ILSmodel
                         PlaneVertical.Location = new Point(XVertical, YVertical);
                     }
                     //резко сдвигаемся на точку 2 (снизу)
-                    else if ((XVertical >= 47 && XVertical <= 95) && (YVertical >= 216 && YVertical < 340))
+                    else if ((XVertical >= 47 && XVertical <= 95) && (YVertical >= 221 && YVertical < 340))
                     {
                         //двигаем x
                         XVertical += 2;
+                        XHorizontal += 2;
                         //двигаем y
                         YVertical -= 5;
                         //меняем курс
@@ -319,7 +455,7 @@ namespace ILSmodel
                         PlaneVertical.Location = new Point(XVertical, YVertical);
                     }
                     //на курсовом, просто двигаемся по x + снижение скорости
-                    else if ((XVertical >= 47 && XVertical < 150) && (YVertical == 216 || YVertical == 215 || YVertical == 214))
+                    else if ((XVertical >= 47 && XVertical < 150) && (YVertical == 216))
                     {
                         //снижение скорости
                         if (plane.Speed != 140)
@@ -327,8 +463,13 @@ namespace ILSmodel
                             plane.Speed -= 10;
                             this.SpeedLabelPFD.Text = plane.Speed.ToString();
                         }
+                        if (YVertical >= 214 && YVertical <= 217)
+                        {
+                            YVertical = 215;
+                        }
                         //двигаем x
                         XVertical += 5;
+                        XHorizontal += 5;
                         //меняем курс
                         plane.Heading = 90;
                         //меняем текст
@@ -337,8 +478,8 @@ namespace ILSmodel
                         //двигаем самолет
                         PlaneVertical.Location = new Point(XVertical, YVertical);
                     }
-                    //протягивание
-                    else if(XVertical < 390)
+                    //протягивание (не захватил)
+                    else if (XVertical < 390)
                     {
                         //снижение скорости
                         if (plane.Speed != 140)
@@ -346,8 +487,13 @@ namespace ILSmodel
                             plane.Speed -= 10;
                             this.SpeedLabelPFD.Text = plane.Speed.ToString();
                         }
+                        if (YVertical >= 214 && YVertical <= 217)
+                        {
+                            YVertical = 215;
+                        }
                         //двигаем x
                         XVertical += 5;
+                        XHorizontal += 5;
                         //меняем курс
                         plane.Heading = 90;
                         //меняем текст
@@ -355,6 +501,11 @@ namespace ILSmodel
                         this.HeadingLabelNav.Text = $"{plane.Heading}";
                         //двигаем самолет
                         PlaneVertical.Location = new Point(XVertical, YVertical);
+                    }
+                    //захватил но пилот не приземлился
+                    else
+                    {
+                        LocButton_Click(sender, e);
                     }
                 }
                 //обычный полет
@@ -518,7 +669,7 @@ namespace ILSmodel
             const int YRnw = 214;
 
             //150 - все что дальше выезд за полосу
-            if ((XVertical >= XRnw && XVertical <= XRnw + 190) && (YVertical > YRnw - 6 && YVertical < YRnw + 6))
+            if ((XVertical >= XRnw && XVertical <= XRnw + 200) && (YVertical > YRnw - 6 && YVertical < YRnw + 6))
             {
                 return true;
             }
@@ -564,10 +715,27 @@ namespace ILSmodel
                 }
             }
         }
+        //на курсе
         private bool OnLock()
         {
             //сверяю координаты ВС и курсового маяка
             if ((XVertical > 22 && XVertical < 95) && (YVertical > 133 && YVertical < 340))
+            {
+                return true;
+            }
+            return false;
+        }
+        //на глиссаде
+        private bool OnGlide()
+        {
+            const int XGlideBegin = 40;
+            //const int XGlideEnd = 363;
+            const int YGlideBegin = 217;
+            //const int YGlideEnd = 265;
+
+
+            //вошел ровно в глиссаду
+            if ((XHorizontal >= XGlideBegin - 2 && XHorizontal <= XGlideBegin + 2) && (YHorizontal >= YGlideBegin - 2 && YHorizontal <= YGlideBegin + 2))
             {
                 return true;
             }
@@ -583,14 +751,35 @@ namespace ILSmodel
                 IsLoc = false;
                 (sender as Button).BackColor = Color.Red;
                 IsApp = false;
+
+                //разрешение нормального полета
+                this.KeyPreview = true;
+                HeadingLeftButton.Enabled = true;
+                HeadingRightButton.Enabled = true;
+                HeightUP.Enabled = true;
+                HeightDown.Enabled = true;
             }
             else
             {
-                LocButton.BackColor = Color.Green;
-                IsLoc = true;
+                //если захватил курс и глиссаду
+                if (OnLock() && OnGlide())
+                {
+                    //маркеры
+                    LocButton.BackColor = Color.Green;
+                    IsLoc = true;
 
-                (sender as Button).BackColor = Color.Green;
-                IsApp = true;
+                    (sender as Button).BackColor = Color.Green;
+                    IsApp = true;
+
+                    //запретить ручное управление
+                    this.KeyPreview = false;
+                    //запрет изменения курса
+                    HeadingLeftButton.Enabled = false;
+                    HeadingRightButton.Enabled = false;
+                    //запрет набора высоты
+                    HeightUP.Enabled = false;
+                    HeightDown.Enabled = false;
+                }
             }
         }
         //быстрое движение

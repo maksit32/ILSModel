@@ -41,6 +41,7 @@
             this.HeadingLabelNav = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.ControlGroupBox = new System.Windows.Forms.GroupBox();
             this.HeightDown = new System.Windows.Forms.Button();
             this.HeightUP = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             this.HeightLabel = new System.Windows.Forms.Label();
             this.HorizontalPB = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.label8 = new System.Windows.Forms.Label();
+            this.timerOnRnw = new System.Windows.Forms.Timer(this.components);
             this.PositionVerticalGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaneVertical)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VerticalPB)).BeginInit();
@@ -193,6 +194,15 @@
             this.pictureBox1.Size = new System.Drawing.Size(250, 230);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(357, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 23);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Курс:";
             // 
             // ControlGroupBox
             // 
@@ -339,15 +349,6 @@
             this.timer.Interval = 600;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(357, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 23);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Курс:";
-            // 
             // TrainingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -414,5 +415,6 @@
         private Label SpeedLabelPFD;
         private System.Windows.Forms.Timer timer;
         private Label label8;
+        private System.Windows.Forms.Timer timerOnRnw;
     }
 }
