@@ -20,6 +20,8 @@ namespace ILSmodel
         public Rules()
         {
             InitializeComponent();
+            this.textBox1.Enabled = false;
+            this.textBox1.Text = $"Q - курс влево, E - курс вправо{Environment.NewLine}A - снизить скорость,{Environment.NewLine}D - увеличить скорость{Environment.NewLine}W - набрать высоту, S - снизиться";
         }
 
         private void Rules_Load(object sender, EventArgs e)

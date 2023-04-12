@@ -35,15 +35,23 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ContinueButton = new System.Windows.Forms.Button();
+            this.FailureButton = new System.Windows.Forms.Button();
+            this.FlightDirector = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FlightDirector)).BeginInit();
             this.SuspendLayout();
             // 
             // LocButton
@@ -106,6 +114,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -115,16 +128,55 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(238, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(394, 390);
+            this.groupBox1.Size = new System.Drawing.Size(394, 620);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Обозначение изображения:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.LightBlue;
+            this.textBox1.Location = new System.Drawing.Point(0, 332);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(394, 128);
+            this.textBox1.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(125, 573);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(118, 23);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Flight Director";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(29, 521);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(324, 23);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Продолжить снижение при отказе КРМ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(100, 469);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(163, 23);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Кнопка отказа КРМ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(39, 306);
+            this.label7.Location = new System.Drawing.Point(39, 299);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(312, 23);
             this.label7.TabIndex = 16;
@@ -142,7 +194,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(114, 202);
+            this.label5.Location = new System.Drawing.Point(115, 202);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 23);
             this.label5.TabIndex = 14;
@@ -152,11 +204,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(6, 151);
+            this.label4.Location = new System.Drawing.Point(114, 151);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(441, 23);
+            this.label4.Size = new System.Drawing.Size(156, 23);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Прибор, отображающий определенную информацию";
+            this.label4.Text = "Информация о ВС";
             // 
             // label2
             // 
@@ -178,12 +230,47 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Кнопка захвата курсового радиомаяка";
             // 
+            // ContinueButton
+            // 
+            this.ContinueButton.BackColor = System.Drawing.Color.LightCoral;
+            this.ContinueButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ContinueButton.Location = new System.Drawing.Point(81, 533);
+            this.ContinueButton.Name = "ContinueButton";
+            this.ContinueButton.Size = new System.Drawing.Size(21, 29);
+            this.ContinueButton.TabIndex = 10;
+            this.ContinueButton.Text = "C";
+            this.ContinueButton.UseVisualStyleBackColor = false;
+            // 
+            // FailureButton
+            // 
+            this.FailureButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FailureButton.Location = new System.Drawing.Point(20, 475);
+            this.FailureButton.Name = "FailureButton";
+            this.FailureButton.Size = new System.Drawing.Size(138, 29);
+            this.FailureButton.TabIndex = 14;
+            this.FailureButton.Text = "Отказ КРМ";
+            this.FailureButton.UseVisualStyleBackColor = true;
+            // 
+            // FlightDirector
+            // 
+            this.FlightDirector.BackColor = System.Drawing.Color.Transparent;
+            this.FlightDirector.BackgroundImage = global::ILSmodel.Properties.Resources.flightDirector3;
+            this.FlightDirector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FlightDirector.Location = new System.Drawing.Point(81, 585);
+            this.FlightDirector.Name = "FlightDirector";
+            this.FlightDirector.Size = new System.Drawing.Size(19, 23);
+            this.FlightDirector.TabIndex = 15;
+            this.FlightDirector.TabStop = false;
+            // 
             // Rules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(644, 414);
+            this.ClientSize = new System.Drawing.Size(667, 644);
+            this.Controls.Add(this.FlightDirector);
+            this.Controls.Add(this.FailureButton);
+            this.Controls.Add(this.ContinueButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -192,9 +279,9 @@
             this.Controls.Add(this.LocButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(662, 461);
+            this.MaximumSize = new System.Drawing.Size(685, 691);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(662, 461);
+            this.MinimumSize = new System.Drawing.Size(685, 691);
             this.Name = "Rules";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rules";
@@ -203,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FlightDirector)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +310,12 @@
         private Label label4;
         private Label label2;
         private Label label1;
+        private Button ContinueButton;
+        private Button FailureButton;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private PictureBox FlightDirector;
+        private TextBox textBox1;
     }
 }

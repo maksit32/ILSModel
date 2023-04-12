@@ -44,6 +44,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.ControlGroupBox = new System.Windows.Forms.GroupBox();
+            this.ContinueButton = new System.Windows.Forms.Button();
             this.HeightDown = new System.Windows.Forms.Button();
             this.HeightUP = new System.Windows.Forms.Button();
             this.HeadingRightButton = new System.Windows.Forms.Button();
@@ -220,6 +221,7 @@
             // 
             // ControlGroupBox
             // 
+            this.ControlGroupBox.Controls.Add(this.ContinueButton);
             this.ControlGroupBox.Controls.Add(this.HeightDown);
             this.ControlGroupBox.Controls.Add(this.HeightUP);
             this.ControlGroupBox.Controls.Add(this.HeadingRightButton);
@@ -233,6 +235,17 @@
             this.ControlGroupBox.TabIndex = 2;
             this.ControlGroupBox.TabStop = false;
             this.ControlGroupBox.Text = "Управление ВС";
+            // 
+            // ContinueButton
+            // 
+            this.ContinueButton.BackColor = System.Drawing.Color.LightCoral;
+            this.ContinueButton.Location = new System.Drawing.Point(304, 219);
+            this.ContinueButton.Name = "ContinueButton";
+            this.ContinueButton.Size = new System.Drawing.Size(21, 29);
+            this.ContinueButton.TabIndex = 6;
+            this.ContinueButton.Text = "C";
+            this.ContinueButton.UseVisualStyleBackColor = false;
+            this.ContinueButton.Click += new System.EventHandler(this.ContinueButton_Click);
             // 
             // HeightDown
             // 
@@ -348,10 +361,10 @@
             // 
             // HorizontalPB
             // 
-            this.HorizontalPB.BackgroundImage = global::ILSmodel.Properties.Resources.Horizontal_ILS;
+            this.HorizontalPB.BackgroundImage = global::ILSmodel.Properties.Resources.Horizontal_ILS1;
             this.HorizontalPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.HorizontalPB.ErrorImage = global::ILSmodel.Properties.Resources.Horizontal_ILS;
-            this.HorizontalPB.InitialImage = global::ILSmodel.Properties.Resources.Horizontal_ILS;
+            this.HorizontalPB.ErrorImage = global::ILSmodel.Properties.Resources.Horizontal_ILS1;
+            this.HorizontalPB.InitialImage = global::ILSmodel.Properties.Resources.Horizontal_ILS1;
             this.HorizontalPB.Location = new System.Drawing.Point(6, 94);
             this.HorizontalPB.Name = "HorizontalPB";
             this.HorizontalPB.Size = new System.Drawing.Size(457, 260);
@@ -365,6 +378,7 @@
             // 
             // timeNotToGoAround
             // 
+            this.timeNotToGoAround.Interval = 700;
             this.timeNotToGoAround.Tick += new System.EventHandler(this.timeNotToGoAround_Tick);
             // 
             // TrainingForm
@@ -385,7 +399,7 @@
             this.MinimumSize = new System.Drawing.Size(1007, 822);
             this.Name = "TrainingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TrainingForm";
+            this.Text = "ILSLanding";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrainingForm_FormClosing);
             this.Load += new System.EventHandler(this.TrainingForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingForm_KeyDown);
@@ -436,5 +450,6 @@
         private Label label8;
         private System.Windows.Forms.Timer timeNotToGoAround;
         private PictureBox FlightDirector;
+        private Button ContinueButton;
     }
 }
