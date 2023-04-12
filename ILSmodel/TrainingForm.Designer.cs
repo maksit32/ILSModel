@@ -36,6 +36,7 @@
             this.HeadingLabel = new System.Windows.Forms.Label();
             this.VerticalPB = new System.Windows.Forms.PictureBox();
             this.DisplaysGroupBox = new System.Windows.Forms.GroupBox();
+            this.FlightDirector = new System.Windows.Forms.PictureBox();
             this.HeightPFD = new System.Windows.Forms.Label();
             this.SpeedLabelPFD = new System.Windows.Forms.Label();
             this.HeadingLabelNav = new System.Windows.Forms.Label();
@@ -55,11 +56,12 @@
             this.HeightLabel = new System.Windows.Forms.Label();
             this.HorizontalPB = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.timerOnRnw = new System.Windows.Forms.Timer(this.components);
+            this.timeNotToGoAround = new System.Windows.Forms.Timer(this.components);
             this.PositionVerticalGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaneVertical)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VerticalPB)).BeginInit();
             this.DisplaysGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FlightDirector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ControlGroupBox.SuspendLayout();
@@ -129,6 +131,7 @@
             // 
             // DisplaysGroupBox
             // 
+            this.DisplaysGroupBox.Controls.Add(this.FlightDirector);
             this.DisplaysGroupBox.Controls.Add(this.HeightPFD);
             this.DisplaysGroupBox.Controls.Add(this.SpeedLabelPFD);
             this.DisplaysGroupBox.Controls.Add(this.HeadingLabelNav);
@@ -143,20 +146,31 @@
             this.DisplaysGroupBox.TabStop = false;
             this.DisplaysGroupBox.Text = "Дисплеи";
             // 
+            // FlightDirector
+            // 
+            this.FlightDirector.BackColor = System.Drawing.Color.Transparent;
+            this.FlightDirector.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FlightDirector.BackgroundImage")));
+            this.FlightDirector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FlightDirector.Location = new System.Drawing.Point(117, 223);
+            this.FlightDirector.Name = "FlightDirector";
+            this.FlightDirector.Size = new System.Drawing.Size(19, 23);
+            this.FlightDirector.TabIndex = 11;
+            this.FlightDirector.TabStop = false;
+            // 
             // HeightPFD
             // 
-            this.HeightPFD.BackColor = System.Drawing.Color.Transparent;
+            this.HeightPFD.BackColor = System.Drawing.Color.Moccasin;
             this.HeightPFD.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HeightPFD.Location = new System.Drawing.Point(215, 117);
+            this.HeightPFD.Location = new System.Drawing.Point(212, 117);
             this.HeightPFD.Name = "HeightPFD";
-            this.HeightPFD.Size = new System.Drawing.Size(41, 23);
+            this.HeightPFD.Size = new System.Drawing.Size(44, 23);
             this.HeightPFD.TabIndex = 10;
             this.HeightPFD.Text = "999";
             this.HeightPFD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SpeedLabelPFD
             // 
-            this.SpeedLabelPFD.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedLabelPFD.BackColor = System.Drawing.Color.Gold;
             this.SpeedLabelPFD.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SpeedLabelPFD.Location = new System.Drawing.Point(39, 117);
             this.SpeedLabelPFD.Name = "SpeedLabelPFD";
@@ -167,7 +181,7 @@
             // 
             // HeadingLabelNav
             // 
-            this.HeadingLabelNav.BackColor = System.Drawing.Color.Transparent;
+            this.HeadingLabelNav.BackColor = System.Drawing.Color.Silver;
             this.HeadingLabelNav.Location = new System.Drawing.Point(335, 43);
             this.HeadingLabelNav.Name = "HeadingLabelNav";
             this.HeadingLabelNav.Size = new System.Drawing.Size(89, 23);
@@ -349,6 +363,10 @@
             this.timer.Interval = 600;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // timeNotToGoAround
+            // 
+            this.timeNotToGoAround.Tick += new System.EventHandler(this.timeNotToGoAround_Tick);
+            // 
             // TrainingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -377,6 +395,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.VerticalPB)).EndInit();
             this.DisplaysGroupBox.ResumeLayout(false);
             this.DisplaysGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FlightDirector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ControlGroupBox.ResumeLayout(false);
@@ -415,6 +434,7 @@
         private Label SpeedLabelPFD;
         private System.Windows.Forms.Timer timer;
         private Label label8;
-        private System.Windows.Forms.Timer timerOnRnw;
+        private System.Windows.Forms.Timer timeNotToGoAround;
+        private PictureBox FlightDirector;
     }
 }

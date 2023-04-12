@@ -48,6 +48,9 @@ namespace ILSmodel
             //PFD
             this.SpeedLabelPFD.Text = this.plane.Speed.ToString();
             this.HeightPFD.Text = this.plane.Heingt.ToString();
+
+            //убрать flight directors
+            this.FlightDirector.Visible = false;
         }
 
         private void TrainingForm_Load(object sender, EventArgs e)
@@ -262,6 +265,20 @@ namespace ILSmodel
                         //двигаем y
                         YVertical += 4;
                         YHorizontal++;
+                        //уменьшаем высоту ВС + обновляем данные
+                        this.plane.Heingt -= 15;
+                        if(checkRunway())   //если на полосе
+                        {
+                            this.plane.Heingt = 0;
+                        }
+                        this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
+                        this.HeightPFD.Text = $"{plane.Heingt}";
+                        //снижение скорости
+                        if (plane.Speed != 140)
+                        {
+                            plane.Speed -= 10;
+                            this.SpeedLabelPFD.Text = plane.Speed.ToString();
+                        }
                         //меняем курс
                         plane.Heading = 120;
                         //меняем текст
@@ -269,6 +286,7 @@ namespace ILSmodel
                         this.HeadingLabelNav.Text = $"{plane.Heading}";
                         //двигаем самолет
                         PlaneVertical.Location = new Point(XVertical, YVertical);
+                        PlaneHorizontal.Location = new Point(XHorizontal, YHorizontal);
                     }
                     //резко сдвигаемся на точку 2 (сверху)
                     else if ((XVertical >= 47 && XVertical <= 95) && (YVertical > 133 && YVertical <= 211))
@@ -279,6 +297,20 @@ namespace ILSmodel
                         //двигаем y
                         YVertical += 5;
                         YHorizontal++;
+                        //уменьшаем высоту ВС + обновляем данные
+                        this.plane.Heingt -= 15;
+                        if (checkRunway())   //если на полосе
+                        {
+                            this.plane.Heingt = 0;
+                        }
+                        this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
+                        this.HeightPFD.Text = $"{plane.Heingt}";
+                        //снижение скорости
+                        if (plane.Speed != 140)
+                        {
+                            plane.Speed -= 10;
+                            this.SpeedLabelPFD.Text = plane.Speed.ToString();
+                        }
                         //меняем курс
                         plane.Heading = 150;
                         //меняем текст
@@ -286,6 +318,7 @@ namespace ILSmodel
                         this.HeadingLabelNav.Text = $"{plane.Heading}";
                         //двигаем самолет
                         PlaneVertical.Location = new Point(XVertical, YVertical);
+                        PlaneHorizontal.Location = new Point(XHorizontal, YHorizontal);
                     }
                     //спокойно сдвигаемся на точку 1(снизу)
                     else if ((XVertical > 22 && XVertical < 47) && (YVertical >= 220 && YVertical < 340))
@@ -296,6 +329,20 @@ namespace ILSmodel
                         //двигаем y
                         YVertical -= 4;
                         YHorizontal++;
+                        //уменьшаем высоту ВС + обновляем данные
+                        this.plane.Heingt -= 15;
+                        if (checkRunway())   //если на полосе
+                        {
+                            this.plane.Heingt = 0;
+                        }
+                        this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
+                        this.HeightPFD.Text = $"{plane.Heingt}";
+                        //снижение скорости
+                        if (plane.Speed != 140)
+                        {
+                            plane.Speed -= 10;
+                            this.SpeedLabelPFD.Text = plane.Speed.ToString();
+                        }
                         //меняем курс
                         plane.Heading = 40;
                         //меняем текст
@@ -303,6 +350,7 @@ namespace ILSmodel
                         this.HeadingLabelNav.Text = $"{plane.Heading}";
                         //двигаем самолет
                         PlaneVertical.Location = new Point(XVertical, YVertical);
+                        PlaneHorizontal.Location = new Point(XHorizontal, YHorizontal);
                     }
                     //резко сдвигаемся на точку 2 (снизу)
                     else if ((XVertical >= 47 && XVertical <= 95) && (YVertical >= 221 && YVertical < 340))
@@ -313,6 +361,20 @@ namespace ILSmodel
                         //двигаем y
                         YVertical -= 5;
                         YHorizontal++;
+                        //уменьшаем высоту ВС + обновляем данные
+                        this.plane.Heingt -= 15;
+                        if (checkRunway())   //если на полосе
+                        {
+                            this.plane.Heingt = 0;
+                        }
+                        this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
+                        this.HeightPFD.Text = $"{plane.Heingt}";
+                        //снижение скорости
+                        if (plane.Speed != 140)
+                        {
+                            plane.Speed -= 10;
+                            this.SpeedLabelPFD.Text = plane.Speed.ToString();
+                        }
                         //меняем курс
                         plane.Heading = 30;
                         //меняем текст
@@ -320,6 +382,7 @@ namespace ILSmodel
                         this.HeadingLabelNav.Text = $"{plane.Heading}";
                         //двигаем самолет
                         PlaneVertical.Location = new Point(XVertical, YVertical);
+                        PlaneHorizontal.Location = new Point(XHorizontal, YHorizontal);
                     }
                     //на курсовом, просто двигаемся по x + снижение скорости
                     else if ((XVertical >= 47 && XVertical < 150) && (YVertical == 216))
@@ -339,6 +402,14 @@ namespace ILSmodel
                         XHorizontal += 5;
                         //снижаюсь по X
                         YHorizontal++;
+                        //уменьшаем высоту ВС + обновляем данные
+                        this.plane.Heingt -= 15;
+                        if (checkRunway())   //если на полосе
+                        {
+                            this.plane.Heingt = 0;
+                        }
+                        this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
+                        this.HeightPFD.Text = $"{plane.Heingt}";
                         //меняем курс
                         plane.Heading = 90;
                         //меняем текст
@@ -346,6 +417,7 @@ namespace ILSmodel
                         this.HeadingLabelNav.Text = $"{plane.Heading}";
                         //двигаем самолет
                         PlaneVertical.Location = new Point(XVertical, YVertical);
+                        PlaneHorizontal.Location = new Point(XHorizontal, YHorizontal);
                     }
                     //протягивание (не захватил)
                     else if (XVertical < 390)
@@ -363,6 +435,14 @@ namespace ILSmodel
                         //двигаем x
                         XVertical += 5;
                         XHorizontal += 5;
+                        //уменьшаем высоту ВС + обновляем данные
+                        this.plane.Heingt -= 15;
+                        if (checkRunway())   //если на полосе
+                        {
+                            this.plane.Heingt = 0;
+                        }
+                        this.HeightLabel.Text = $"Высота ВС:  {plane.Heingt}ft";
+                        this.HeightPFD.Text = $"{plane.Heingt}";
                         //двигаю y
                         YHorizontal++;
                         //меняем курс
@@ -372,6 +452,7 @@ namespace ILSmodel
                         this.HeadingLabelNav.Text = $"{plane.Heading}";
                         //двигаем самолет
                         PlaneVertical.Location = new Point(XVertical, YVertical);
+                        PlaneHorizontal.Location = new Point(XHorizontal, YHorizontal);
                     }
                     //захватил но пилот не приземлился
                     else
@@ -669,7 +750,7 @@ namespace ILSmodel
             const int YRnw = 214;
 
             //150 - все что дальше выезд за полосу
-            if ((XVertical >= XRnw && XVertical <= XRnw + 200) && (YVertical > YRnw - 6 && YVertical < YRnw + 6))
+            if ((XVertical >= XRnw && XVertical <= XRnw + 215) && (YVertical > YRnw - 6 && YVertical < YRnw + 6))
             {
                 return true;
             }
@@ -712,6 +793,9 @@ namespace ILSmodel
                     //запрет изменения курса
                     HeadingLeftButton.Enabled = false;
                     HeadingRightButton.Enabled = false;
+
+                    //появился маркер
+                    this.FlightDirector.Visible = true;
                 }
             }
         }
@@ -728,14 +812,14 @@ namespace ILSmodel
         //на глиссаде
         private bool OnGlide()
         {
-            const int XGlideBegin = 40;
+            const int XGlideBegin = 92;
             //const int XGlideEnd = 363;
-            const int YGlideBegin = 217;
+            const int YGlideBegin = 226;
             //const int YGlideEnd = 265;
 
 
             //вошел ровно в глиссаду
-            if ((XHorizontal >= XGlideBegin - 2 && XHorizontal <= XGlideBegin + 2) && (YHorizontal >= YGlideBegin - 2 && YHorizontal <= YGlideBegin + 2))
+            if ((XHorizontal >= XGlideBegin - 6 && XHorizontal <= XGlideBegin + 6) && (YHorizontal >= YGlideBegin - 6 && YHorizontal <= YGlideBegin + 6))
             {
                 return true;
             }
@@ -779,6 +863,9 @@ namespace ILSmodel
                     //запрет набора высоты
                     HeightUP.Enabled = false;
                     HeightDown.Enabled = false;
+
+                    //появился маркер
+                    this.FlightDirector.Visible = true;
                 }
             }
         }
@@ -849,6 +936,11 @@ namespace ILSmodel
                 }
                 this.SpeedLabelPFD.Text = $"{plane.Speed}";
             }
+        }
+        //пользователь решает продолжить снижение при отказе, либо будет goAround автоматически
+        private void timeNotToGoAround_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

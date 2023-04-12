@@ -63,6 +63,16 @@ namespace ILSmodel.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap flightDirector {
+            get {
+                object obj = ResourceManager.GetObject("flightDirector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Horizontal_ILS {
             get {
                 object obj = ResourceManager.GetObject("Horizontal ILS", resourceCulture);
